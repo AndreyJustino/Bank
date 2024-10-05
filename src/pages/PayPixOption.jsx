@@ -1,4 +1,5 @@
 import React from 'react'
+import style from "./PayPixOption.module.css"
 
 function PayPixOption() {
   return (
