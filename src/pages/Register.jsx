@@ -1,7 +1,5 @@
 import React from 'react'
-import style from "./Register.module.css"
 import logo from "../assets/logoInter.png"
-import foto from "../assets/fotoFormPessoaCadastro.png"
 import { Link } from 'react-router-dom'
 
 function Register() {
@@ -14,7 +12,6 @@ function Register() {
       <section className="sectionForm">
         
         <div className="molduraPessoaInterRL">
-          {/* <img src={foto} alt="Logo" /> */}
         </div>
         
         <form autoComplete='off' onSubmit={cadastrar} className="formRL">
