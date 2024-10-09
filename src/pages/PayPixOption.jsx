@@ -1,23 +1,17 @@
 import React from 'react'
 import style from "./PayPixOption.module.css"
-import iconBack from "../assets/icon/iconBack.png"
 import iconCamera from "../assets/icon/iconsCamera.png"
 import iconCopia from "../assets/icon/iconsCopiar.png"
 import iconMuseus from "../assets/icon/iconsMuseu.png"
-import { Link } from 'react-router-dom'
 import CardFavoritePay from '../components/CardFavoritePay'
+import HeaderPix from '../components/HeaderPix'
 
 
 function PayPixOption() {
   return (
     <div className={style.containerPayPix}>
 
-      <header className={style.headerPayOption}>
-        <Link to="/">
-          <img src={iconBack} alt="icon" />
-        </Link>
-        <h1>Pagar com pix</h1>
-      </header>
+      <HeaderPix titulo={"Pagar com pix"} link={"/"}/>
 
       <section className={style.sectionPayOption}>
         
