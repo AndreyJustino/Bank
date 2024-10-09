@@ -3,7 +3,9 @@ import style from './PageSendPix.module.css'
 
 function PageSendPix() {
   return (
-    <div>PageSendPix</div>
+    <div>
+      
+    </div>
   )
 }
 
