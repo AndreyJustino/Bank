@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import style from './PageSendPix.module.css'
 import HeaderPix from '../components/HeaderPix'
+import Balance from '../components/Balance';
+import { useNavigate } from 'react-router-dom';
 
 function PageSendPix() {
   const [inputValue, setInputValue] = useState('0');
 
   console.log(parseFloat(inputValue))
+  const navigate = useNavigate();
 
   return (
     <div className={style.containerPageSendPix}>
@@ -13,10 +16,7 @@ function PageSendPix() {
 
       <section className={style.sectionPageSendPix}>
         
-        <div className={style.balancePageSendPix}>
-          <p>Saldo em conta</p>
-          <p>R$ xxxx</p>
-        </div>
+        <Balance/>
 
         <div className={style.valuePageSendPix}>
           
@@ -42,7 +42,9 @@ function PageSendPix() {
           <p className={style.textPageSend}>Pagar para</p>
           <p>Andrey</p>
         </div>
-        <button className={style.buttonPageSend}>Continuar</button>
+        <button className={style.buttonPageSend} onClick={() => {
+          navigate("/paypix")
+        }}>Continuar</button>
       </section>
     </div>
   )
