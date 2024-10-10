@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import style from './PageSendPix.module.css'
 import HeaderPix from '../components/HeaderPix'
+import Balance from '../components/Balance';
 
 function PageSendPix() {
   const [inputValue, setInputValue] = useState('0');
@@ -13,10 +14,7 @@ function PageSendPix() {
 
       <section className={style.sectionPageSendPix}>
         
-        <div className={style.balancePageSendPix}>
-          <p>Saldo em conta</p>
-          <p>R$ xxxx</p>
-        </div>
+        <Balance/>
 
         <div className={style.valuePageSendPix}>
           
