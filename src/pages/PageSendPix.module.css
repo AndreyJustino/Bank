@@ -14,10 +14,6 @@
     margin: 0 auto;
 }
 
-.valuePageSendPix{
-    /* border: 2px solid black; */
-}
-
 .valuePageSendPix div{
     display: flex;
     align-items: center;

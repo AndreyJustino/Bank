@@ -9,6 +9,7 @@
     justify-content: space-between;
     padding: 10px;
     max-width: 750px;
+    background-color: #fff;
 }
 
 .containerBalanceComponents p:nth-of-type(2) {
