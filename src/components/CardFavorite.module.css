@@ -1,25 +1,25 @@
-.cardFavorite{
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ccc;
-    font-size: 1.2em;
-    margin-top: 10px;
+.cardFavorite {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.2em;
+  margin-top: 10px;
 }
 
-.cardFavorite div{
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.cardFavorite div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.cardFavorite div p{
-    font-size: 1.2em;
+.cardFavorite div p {
+  font-size: 1.2em;
 }
 
-.cardFavorite img{
-    width: 25px;
-    height: 30px;
-    cursor: pointer;
+.cardFavorite img {
+  width: 25px;
+  height: 30px;
+  cursor: pointer;
 }

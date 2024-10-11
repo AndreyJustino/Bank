@@ -1,37 +1,35 @@
-import React, { useEffect, useState } from 'react'
-import style from "./PayPix.module.css"
-import HeaderPix from '../components/HeaderPix'
-import Balance from '../components/Balance'
-import iconCoins from "../assets/icon/iconCoins.png"
-import iconCalendar from "../assets/icon/iconsCalendar.png"
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import style from "./PayPix.module.css";
+import HeaderPix from "../components/HeaderPix";
+import Balance from "../components/Balance";
+import iconCoins from "../assets/icon/iconCoins.png";
+import iconCalendar from "../assets/icon/iconsCalendar.png";
+import { useNavigate } from "react-router-dom";
 
 function PayPix() {
-  const [data, setData] = useState()
-  const navigate = useNavigate()
+  const [data, setData] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const date = new Date()
+    const date = new Date();
     const today = {
       day: date.getDate(),
       month: date.getMonth() + 1,
       year: date.getFullYear(),
-    }
-  
-    setData(`${today.day}/${today.month}/${today.year}`)
-  }, [])
+    };
 
+    setData(`${today.day}/${today.month}/${today.year}`);
+  }, []);
 
   return (
     <div className={style.containerPayPix}>
-      <HeaderPix titulo={"Revisão"} link={"/pagesendpix"}/>
+      <HeaderPix titulo={"Revisão"} link={"/pagesendpix"} />
       <section className={style.sectionPayPix}>
-        <Balance/>
-        
+        <Balance />
+
         <div className={style.boxDataPayPix}>
-            
           <img src={iconCoins} alt="" />
-          
+
           <p>R$ 0,01</p>
           <p>andrey@mail.com</p>
         </div>
@@ -50,13 +48,16 @@ function PayPix() {
       </section>
 
       <div className={style.containerPayPixButton}>
-        <button onClick={() => {
-          navigate("/")
-        }}>Pagar R$ 0,01</button>
+        <button
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Pagar R$ 0,01
+        </button>
       </div>
-      
     </div>
-  )
+  );
 }
 
-export default PayPix
+export default PayPix;

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import logo from "../assets/logoInter.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Register() {
   const [name, setName] = useState();
@@ -12,41 +12,44 @@ function Register() {
   const [dateBirth, setDateBirth] = useState();
   const [mobileNumber, setMobileNumber] = useState();
   const [password, setPassword] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function cadastrar(e) {
     e.preventDefault();
-    
 
-    try{
-      await axios.post("https://api-bank-0pr4.onrender.com/postUser",{
-        name,
-        email,
-        password,
-        cpf,
-        data_nascimento: dateBirth,
-        telefone: mobileNumber
-      },{
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      }).then(response => {
-        if(response.data.status == 201){
-          toast.success('Cadastro realizado com sucesso!')
-          return navigate("/login")
-        }
-      })
-    }catch(error){
-
-      if(error.status == 409){
-        return toast.error('Email já cadastrado')
+    try {
+      await axios
+        .post(
+          "https://api-bank-0pr4.onrender.com/postUser",
+          {
+            name,
+            email,
+            password,
+            cpf,
+            data_nascimento: dateBirth,
+            telefone: mobileNumber,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          if (response.data.status == 201) {
+            toast.success("Cadastro realizado com sucesso!");
+            return navigate("/login");
+          }
+        });
+    } catch (error) {
+      if (error.status == 409) {
+        return toast.error("Email já cadastrado");
       }
-      
-      if(error.status == 400){
-        return toast.error('Preencha todos os campos')
+
+      if (error.status == 400) {
+        return toast.error("Preencha todos os campos");
       }
     }
-
   }
 
   return (
@@ -112,10 +115,10 @@ function Register() {
           </div>
           <div className="blocoRL">
             <label htmlFor="nascimento">Data de nascimento:</label>
-            <input 
-              required 
-              type="date" 
-              id="nascimento" 
+            <input
+              required
+              type="date"
+              id="nascimento"
               name="nascimento"
               onChange={(e) => {
                 setDateBirth(e.target.value);
