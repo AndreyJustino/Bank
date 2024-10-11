@@ -12,11 +12,11 @@ function Register() {
   const [dateBirth, setDateBirth] = useState();
   const [mobileNumber, setMobileNumber] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate()
 
   async function cadastrar(e) {
     e.preventDefault();
     
-    const navigate = useNavigate()
 
     try{
       await axios.post("https://api-bank-0pr4.onrender.com/postUser",{
