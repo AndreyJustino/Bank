@@ -1,108 +1,108 @@
-.containerPayPix{
-    min-height: 100vh;
-    background-color: #ff7a00;
+.containerPayPix {
+  min-height: 100vh;
+  background-color: #ff7a00;
 }
 
-.sectionPayPix{
-    max-width: 750px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #fff;
-    margin: 0 auto;
+.sectionPayPix {
+  max-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  margin: 0 auto;
 }
 
-.boxDataPayPix{
-    margin-top: 20px;
-    /* border: 2px solid red; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.boxDataPayPix {
+  margin-top: 20px;
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-.boxDataPayPix p:nth-of-type(1){
-    font-size: 2em;
-    font-weight: 600;
-    text-align: center;
+.boxDataPayPix p:nth-of-type(1) {
+  font-size: 2em;
+  font-weight: 600;
+  text-align: center;
 }
 
-.boxDataPayPix p:nth-of-type(2){
-    font-size: 1.4em;
-    font-weight: 600;
-    text-align: center;
-    color: #999999;
+.boxDataPayPix p:nth-of-type(2) {
+  font-size: 1.4em;
+  font-weight: 600;
+  text-align: center;
+  color: #999999;
 }
 
-.boxDataPayPix img{
-    width: 35px;
+.boxDataPayPix img {
+  width: 35px;
 }
 
 .sectionPayPix2 {
-    background-color: #fff;
-    /* padding: 20px 0px 0px 15px; */
-    /* border: 2px solid red; */
-    padding: 10px;
-    margin: 0 auto;
-    max-width: 750px;
+  background-color: #fff;
+  /* padding: 20px 0px 0px 15px; */
+  /* border: 2px solid red; */
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 750px;
 }
 
-.sectionPayPix2 h2{
-    margin: 10px;
-    /* margin-bottom: 15px; */
+.sectionPayPix2 h2 {
+  margin: 10px;
+  /* margin-bottom: 15px; */
 }
 
-.boxDatePayPix{
-    display: flex;
-    align-items: center;
-    border: 2px solid #cfcfcf;
-    /* margin: 10px; */
-    width: 90%;
-    padding: 10px;
-    border-radius: 5px;
-    /* margin: 0 auto; */
+.boxDatePayPix {
+  display: flex;
+  align-items: center;
+  border: 2px solid #cfcfcf;
+  /* margin: 10px; */
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
+  /* margin: 0 auto; */
 }
 
-.boxDatePayPix img{
-    width: 30px;
-    height: 30px;
+.boxDatePayPix img {
+  width: 30px;
+  height: 30px;
 }
 
-.boxDatePayPix h3{
-    font-size: 1.5em;
-    margin: 0px 0px 5px 5px;
+.boxDatePayPix h3 {
+  font-size: 1.5em;
+  margin: 0px 0px 5px 5px;
 }
 
-.boxDatePayPix p{
-    font-size: 1.3em;
-    margin: 5px 0px 0px 5px;
-    color: #7a7a7a;
-    font-weight: 600;
+.boxDatePayPix p {
+  font-size: 1.3em;
+  margin: 5px 0px 0px 5px;
+  color: #7a7a7a;
+  font-weight: 600;
 }
 
-.containerPayPixButton{
-    padding: 40px 0px;
-    background-color: #fff;
-    max-width: 750px;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto
+.containerPayPixButton {
+  padding: 40px 0px;
+  background-color: #fff;
+  max-width: 750px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-.containerPayPixButton button{
-    border: none;
-    width: 90%;
-    font-size: 1.8em;
-    font-weight: 600;
-    background-color: #ff7a00;
-    color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.containerPayPixButton button {
+  border: none;
+  width: 90%;
+  font-size: 1.8em;
+  font-weight: 600;
+  background-color: #ff7a00;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .containerPayPixButton button:hover {
-    background-color: #e66a00;
+  background-color: #e66a00;
 }
