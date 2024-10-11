@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logoInter.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,8 @@ function Register() {
   async function cadastrar(e) {
     e.preventDefault();
     
+    const navigate = useNavigate()
+
     try{
       await axios.post("https://api-bank-0pr4.onrender.com/postUser",{
         name,
@@ -30,7 +32,8 @@ function Register() {
         }
       }).then(response => {
         if(response.data.status == 201){
-          return toast.success('Cadastro realizado com sucesso!')
+          toast.success('Cadastro realizado com sucesso!')
+          return navigate("/login")
         }
       })
     }catch(error){
