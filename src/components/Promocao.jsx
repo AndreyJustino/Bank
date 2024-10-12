@@ -3,7 +3,7 @@ import style from "./Promocao.module.css"
 
 function Promocao() {
     return (
-      <div className="promocao">
+      <div className={style.promocao}>
         <h3>Limite de crédito extra?</h3>
         <img src="" alt="" />
       </div>
