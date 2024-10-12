@@ -3,7 +3,7 @@ import style from "./NavbarInferior.module.css"
 
 function NavbarInferior() {
     return (
-        <div className="navebar-inferior">
+        <div className={style.navebar_inferior}>
             <button><span className="material-icons">home</span>Início</button>
             <button><span className="material-icons">trending_up</span>Invest</button>
             <button><span className="material-icons">shopping_bag</span>Shop</button>

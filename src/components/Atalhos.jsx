@@ -3,7 +3,7 @@ import style from "./Atalhos.module.css"
 
 function Atalhos() {
     return (
-      <div className="atalhos">
+      <div className={style.atalhos}>
         <button><span className="material-icons">favorite</span>Seguro de vida</button>
         <button><span className="material-icons">trending_up</span>Invest</button>
         <button><span className="material-icons">phone_iphone</span>Recargas</button>
