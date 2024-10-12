@@ -1,0 +1,31 @@
+.navbar-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.navbar-superior h1 {
+    color: #f8931f;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    gap: 10px;
+}
+
+.menu button {
+    background-color: #fff;
+    border: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu button:hover {
+    color: #f8931f;
+}
