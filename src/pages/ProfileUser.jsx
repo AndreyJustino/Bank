@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
 import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
+import HeaderPix from '../components/HeaderPix'
+import style from "./ProfileUser.module.css"
 
 function ProfileUser() {
     const navigate = useNavigate()
@@ -14,7 +16,12 @@ function ProfileUser() {
     }, [])
 
   return (
-    <div>ProfileUser</div>
+    <div className="container">
+        <HeaderPix titulo={"Perfil"} link={"/"}/>
+        <section>
+
+        </section>
+    </div>
   )
 }
 

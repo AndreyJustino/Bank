@@ -9,6 +9,11 @@ html {
   font-size: 62.5%;
 }
 
+.container{
+  background-color: #ff7a00;
+  min-height: 100vh;
+}
+
 .containerForm {
   display: flex;
   justify-content: center;
