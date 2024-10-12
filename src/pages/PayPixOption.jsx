@@ -26,7 +26,7 @@ function PayPixOption() {
   }
 
   return (
-    <div className={style.containerPayPix}>
+    <div className="container">
       <HeaderPix titulo={"Pagar com pix"} link={"/"} />
 
       <section className={style.sectionPayOption}>

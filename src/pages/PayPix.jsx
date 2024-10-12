@@ -22,7 +22,7 @@ function PayPix() {
   }, []);
 
   return (
-    <div className={style.containerPayPix}>
+    <div className="container">
       <HeaderPix titulo={"Revisão"} link={"/pagesendpix"} />
       <section className={style.sectionPayPix}>
         <Balance />

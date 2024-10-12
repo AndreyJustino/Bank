@@ -11,7 +11,7 @@ function PageSendPix() {
   const navigate = useNavigate();
 
   return (
-    <div className={style.containerPageSendPix}>
+    <div className="container">
       <HeaderPix link={"/paypixoption"} titulo={"Valor a pagar"} />
 
       <section className={style.sectionPageSendPix}>
