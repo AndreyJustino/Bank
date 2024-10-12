@@ -1,0 +1,16 @@
+.headerPayPixComponents {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  background-color: #fff;
+  height: 80px;
+}
+
+.headerPayPixComponents img {
+  width: 35px;
+  cursor: pointer;
+}
+
+.headerPayPixComponents h1 {
+  margin: 0 auto;
+}

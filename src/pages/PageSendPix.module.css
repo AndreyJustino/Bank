@@ -1,1 +1,72 @@
-/* Criar classe css, siga esse padrão: .nomeClassePageSendPix  */
+.containerPageSendPix {
+  background-color: #ff7a00;
+  min-height: 100vh;
+}
+
+.sectionPageSendPix {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 90px;
+  height: 450px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.valuePageSendPix div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.valuePageSendPix div p {
+  border: none;
+  border-bottom: 2px solid #ff7a00;
+  font-size: 3em;
+  color: #ff7a00;
+}
+
+.valuePageSendPix div input {
+  border: none;
+  border-bottom: 2px solid #ff7a00;
+  text-align: center;
+  font-size: 3em;
+  width: 40%;
+}
+
+.valuePageSendPix div input:focus {
+  outline: none;
+}
+
+.textPageSend {
+  font-size: 1.6em;
+  text-align: center;
+  color: #969696;
+  margin-top: 5px;
+}
+
+.valuePageSendPix p:nth-of-type(2) {
+  text-align: center;
+  margin: 15px;
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.buttonPageSend {
+  border: none;
+  width: 90%;
+  font-size: 1.8em;
+  font-weight: 600;
+  background-color: #ff7a00;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonPageSend:hover {
+  background-color: #e66a00;
+}

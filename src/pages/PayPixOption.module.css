@@ -1,1 +1,126 @@
-/* Criar classe css, siga esse padrão: .nomeClassePayPixOption  */
+.containerPayPix {
+  min-height: 100vh;
+  background-color: #ff7a00;
+}
+
+.headerPayOption {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  background-color: #fff;
+  height: 80px;
+}
+
+.headerPayOption img {
+  width: 35px;
+  cursor: pointer;
+}
+
+.headerPayOption h1 {
+  margin: 0 auto;
+}
+
+.sectionPayOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 750px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.boxQuestionPayOption {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.boxQuestionPayOption h2 {
+  font-size: 1.6em;
+}
+
+.boxQuestionPayOption button {
+  border: none;
+  background-color: #ffffff00;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #ff7a00;
+  cursor: pointer;
+}
+
+.inputPayOption {
+  width: 95%;
+  padding: 15px;
+  font-size: 1.4em;
+  font-weight: 600;
+  color: #797979;
+  background-color: #f1f1f1;
+  border: none;
+  border-radius: 5px;
+}
+
+.inputPayOption:focus {
+  outline: none;
+}
+
+.containerButtonPayOption {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.containerButtonPayOption h2 {
+  font-size: 1.8em;
+  margin: 10px;
+}
+
+.boxButtonPayOption {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.boxButtonPayOption button {
+  width: 100px;
+  height: 90px;
+  font-size: 1.3em;
+  padding: 5px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.boxButtonPayOption button img {
+  width: 25px;
+}
+
+.sectionFavoritePayOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  max-width: 750px;
+  min-height: 300px;
+  margin: 0 auto;
+}
+
+.textFavoritePay {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.textFavoritePay h1 {
+  font-size: 1.8em;
+}
+
+.textFavoritePay p {
+  color: #ff7a00;
+  font-size: 1.4em;
+  font-weight: 600;
+  cursor: pointer;
+}
