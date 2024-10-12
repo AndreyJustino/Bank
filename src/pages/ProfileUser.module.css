@@ -2,3 +2,14 @@
     background-color: #ff7a00;
     min-height: 100vh;
 }
+
+.sectionProfile{
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+}
+
+#formProfile{
+    border-radius: 0px 0px 5px 5px;
+    max-width: 750px;
+}
