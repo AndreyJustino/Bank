@@ -6,6 +6,7 @@ import PageSendPix from "../pages/PageSendPix.jsx";
 import PayPix from "../pages/PayPix.jsx";
 import PayPixOption from "../pages/PayPixOption.jsx";
 import Register from "../pages/Register.jsx";
+import ProfileUser from "../pages/ProfileUser.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/profileUser",
+        element: <ProfileUser />,
       },
     ],
   },
