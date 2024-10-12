@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./PayPixOption.module.css";
 import iconCamera from "../assets/icon/iconsCamera.png";
 import iconCopia from "../assets/icon/iconsCopiar.png";
 import iconMuseus from "../assets/icon/iconsMuseu.png";
-import CardFavoritePay from "../components/CardFavoritePay";
+import CardHistorical from "../components/CardHistorical";
 import HeaderPix from "../components/HeaderPix";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 function PayPixOption() {
+  const [keyPix, setKeyPix] = useState()
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const auth = Cookies.get("auth")
+
+    if(!auth){
+      navigate("/register")
+    }
+  }, [])
+
+  async function sendPix() {
+    Cookies.set("keyPix", keyPix)
+    navigate("/pagesendpix")
+  }
+
   return (
     <div className={style.containerPayPix}>
       <HeaderPix titulo={"Pagar com pix"} link={"/"} />
@@ -18,9 +36,20 @@ function PayPixOption() {
         </div>
 
         <input
-          type="text"
-          placeholder="Digite o e-mail ou o telefone"
+          type="email"
+          required
+          placeholder="Digite o e-mail"
           className={style.inputPayOption}
+          onChange={(e) => {
+            setKeyPix(e.target.value)
+          }}
+          onKeyDown={(event) => {
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+
+            if(regex.test(keyPix) && event.key == "Enter"){
+              sendPix()
+            }
+          }}
         />
 
         <div className={style.containerButtonPayOption}>
@@ -43,20 +72,22 @@ function PayPixOption() {
       </section>
       <section className={style.sectionFavoritePayOption}>
         <div className={style.textFavoritePay}>
-          <h1>Favoritos</h1>
+          <h1>Historico de transações</h1>
           <p>Acessar todos</p>
         </div>
 
-        <CardFavoritePay
-          email={"xxxxxx@mail.com"}
-          nome={"xxxxxx"}
-          telefone={"xx xxxxx-xxxx"}
+        <CardHistorical
+          data={"12/12/2021"}
+          valor={"R$ XX,XX"}
+          id={"XXXXXXXXXXX"}
         />
-        <CardFavoritePay
-          email={"xxxxxx@mail.com"}
-          nome={"xxxxxx"}
-          telefone={"xx xxxxx-xxxx"}
+
+        <CardHistorical
+          data={"12/12/2021"}
+          valor={"R$ XX,XX"}
+          id={"XXXXXXXXXXX"}
         />
+        
       </section>
     </div>
   );
