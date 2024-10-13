@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import style from "./NavbarSuperior.module.css";
 import logo from "./../assets/logoInter.png";
 
@@ -7,7 +8,7 @@ function NavbarSuperior() {
     <div className={style.navbar_superior}>
       <header className={style.headerNavSuperior}>
         <img src={logo} alt="Logo inter" className={style.logoNavSuperior} />
-        <button className={style.perfilButtonNavSuperior}>Perfil</button>
+        <Link to={"/profileUser"}><button className={style.perfilButtonNavSuperior}>Perfil</button></Link>
       </header>
 
       <div className={style.balanceContainerNavSuperior}>
@@ -30,9 +31,11 @@ function NavbarSuperior() {
         
 
         <div className={style.buttonGroupNavSuperior}>
-          <button className={style.actionButton}>
-            <span className="material-icons">pix</span>Pix
-          </button>
+          <Link to={"/paypixoption"} className={style.linkNavbarSuperior}>
+            <button className={style.actionButton}>
+              <span className="material-icons">pix</span>Pix
+            </button>
+          </Link>
 
           <button className={style.actionButton}>
             <span className="material-icons">
