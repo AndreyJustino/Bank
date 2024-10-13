@@ -146,3 +146,9 @@ html {
     max-width: 100%;
   }
 }
+
+.material-icons{
+  font-size: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
