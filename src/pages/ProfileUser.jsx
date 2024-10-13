@@ -18,7 +18,11 @@ function ProfileUser() {
     const [dateBirth, setDateBirth] = useState("")
     const [mobileNumber, setMobileNumber] = useState("")
     const [password, setPassword] = useState("")
+    const [scrollBlock, setScrollBlock] = useState(false);
+    const [render, setRender] = useState(false)
 
+    const [emailDelete, setEmailDelete] = useState()
+    const [passwordDelete, setPasswordDelete] = useState()
 
     useEffect(() => {
         const auth = Cookies.get("auth")
@@ -47,6 +51,7 @@ function ProfileUser() {
           } catch (error) {
               if(error.status == 404){
                 Cookies.set("auth", false)
+                Cookies.set("email", "")
                 return navigate("/register")
               }
           }
@@ -81,8 +86,58 @@ function ProfileUser() {
 
     }
 
+    useEffect(() => {
+      if (scrollBlock) {
+        
+        document.body.style.overflow = "hidden";
+      } else {
+        
+        document.body.style.overflow = "";
+      }
+
+      
+      return () => {
+        document.body.style.overflow = "";
+      };
+    }, [scrollBlock]);
+
+    async function deleteAccount(e){
+      e.preventDefault()
+      
+      try{
+
+        const response = await axios.delete("https://api-bank-0pr4.onrender.com/deleteUser",{
+          headers: {
+            "Content-Type": "application/json"
+          }, data: {
+            email: emailDelete,
+            password: passwordDelete
+          }
+        })
+
+        toast.success(response.data.message)
+        
+        Cookies.remove("email")
+        Cookies.remove("auth")
+
+        setTimeout(() => {
+          navigate("/register")
+        }, 3000)
+
+      }catch(error){
+        console.log(error.response)
+        toast.error(error.response.data.message)
+      }
+      
+    }
+
+
   return (
-    <div className="container">
+    <div className="container" id='profileUser'>
+        {
+          render ? <div className={style.overlay}></div> : null
+        }
+
         
         <HeaderPix titulo={"Perfil"} link={"/"}/>
         <section className={style.sectionProfile}>
@@ -99,7 +154,8 @@ function ProfileUser() {
               draggable
               pauseOnHover
               theme="light"
-            />
+              limit={1}
+            /> 
 
             <div className="blocoRL">
               <label htmlFor="name">Nome:</label>
@@ -190,7 +246,66 @@ function ProfileUser() {
             <button type="submit" className="buttonRL">
               Atualizar dados
             </button>
+            <button 
+              type="button" 
+              className="buttonRL" 
+              id={style.buttonDeleteUser}
+              onClick={() => {
+                setRender(true)
+                window.location.href = "#profileUser"
+                setScrollBlock(true)
+              }}
+            >
+              Deletar conta
+            </button>
           </form>
+
+          {
+              render ? <form onSubmit={deleteAccount} autoComplete="off" className="formRL" id={style.formDelete}>
+            
+              <div className="blocoRL">
+                <label htmlFor="email">E-mail:</label>
+                <input
+                  type="email"
+                  placeholder="Digite seu e-mail"
+                  required
+                  onChange={(e) => {
+                    setEmailDelete(e.target.value);
+                  }}
+                />
+              </div>
+    
+              <div className="blocoRL">
+                <label htmlFor="password">Senha:</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Digite sua senha"
+                  required
+                  onChange={(e) => {
+                    setPasswordDelete(e.target.value);
+                  }}
+                />
+              </div>
+              
+              <button type="submit" className="buttonRL">
+                Deletar
+              </button>
+              <button 
+                type="button" 
+                className="buttonRL"
+                onClick={() => {
+                  setRender(false);
+                  setScrollBlock(false)
+                }}
+              >
+                Cancelar
+              </button>
+            </form> : null
+          }
+
+          
+
         </section>
     </div>
   )
