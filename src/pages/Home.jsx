@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import style from "./Home.module.css";
 import NavbarSuperior from "../components/NavbarSuperio.jsx";
 
 function Home() {
@@ -16,7 +15,7 @@ function Home() {
   }, []);
 
   return (
-    <div className={style.headerHome}>
+    <div>
       <NavbarSuperior />
     </div>
   );
