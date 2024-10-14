@@ -106,6 +106,12 @@ function ProfileUser() {
       
       try{
 
+        const data = await axios.delete(`https://api-bank-0pr4.onrender.com/deleteAccounts/${id}`,{
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+
         const response = await axios.delete("https://api-bank-0pr4.onrender.com/deleteUser",{
           headers: {
             "Content-Type": "application/json"
