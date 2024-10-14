@@ -9,20 +9,20 @@ import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 function PayPixOption() {
-  const [keyPix, setKeyPix] = useState()
-  const navigate = useNavigate()
+  const [keyPix, setKeyPix] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const auth = Cookies.get("auth")
+    const auth = Cookies.get("auth");
 
-    if(!auth){
-      navigate("/register")
+    if (!auth) {
+      navigate("/register");
     }
-  }, [])
+  }, []);
 
   async function sendPix() {
-    Cookies.set("keyPix", keyPix)
-    navigate("/pagesendpix")
+    Cookies.set("keyPix", keyPix);
+    navigate("/pagesendpix");
   }
 
   return (
@@ -41,13 +41,13 @@ function PayPixOption() {
           placeholder="Digite o e-mail"
           className={style.inputPayOption}
           onChange={(e) => {
-            setKeyPix(e.target.value)
+            setKeyPix(e.target.value);
           }}
           onKeyDown={(event) => {
-            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-            if(regex.test(keyPix) && event.key == "Enter"){
-              sendPix()
+            if (regex.test(keyPix) && event.key == "Enter") {
+              sendPix();
             }
           }}
         />
@@ -87,7 +87,6 @@ function PayPixOption() {
           valor={"R$ XX,XX"}
           id={"XXXXXXXXXXX"}
         />
-        
       </section>
     </div>
   );

@@ -31,7 +31,7 @@ function Login() {
         .then((response) => {
           if (response.data.status == 200) {
             Cookies.set("auth", response.data.login);
-            Cookies.set("email", email)
+            Cookies.set("email", email);
             toast.success("Login Autorizado");
             return navigate("/");
           }

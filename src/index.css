@@ -9,7 +9,7 @@ html {
   font-size: 62.5%;
 }
 
-.container{
+.container {
   background-color: #ff7a00;
   min-height: 100vh;
 }
@@ -152,7 +152,7 @@ html {
   }
 }
 
-.material-icons{
+.material-icons {
   font-size: 20px;
   vertical-align: middle;
   margin-right: 5px;

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./NavbarSuperior.module.css";
 import logo from "./../assets/logoBank.png";
-import Cookies from 'js-cookie'
-import axios from "axios"
+import Cookies from "js-cookie";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function NavbarSuperior() {
-  const [userData, setUserData] = useState(null); 
-  const [balance, setBalance] = useState()
+  const [userData, setUserData] = useState(null);
+  const [balance, setBalance] = useState();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,11 +16,14 @@ function NavbarSuperior() {
 
     async function getData(email) {
       try {
-        const response = await axios.get(`https://api-bank-0pr4.onrender.com/getUser/${email}`, {
-          headers: {
-            "Content-Type": "application/json"
+        const response = await axios.get(
+          `https://api-bank-0pr4.onrender.com/getUser/${email}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
           }
-        });
+        );
 
         setUserData(response.data.user);
       } catch (error) {
@@ -33,22 +36,23 @@ function NavbarSuperior() {
     }
 
     if (email) {
-      getData(email);  
+      getData(email);
     }
   }, [navigate]);
 
   useEffect(() => {
-    
     async function getAccount(id) {
       try {
-        const response = await axios.get(`https://api-bank-0pr4.onrender.com/getAccounts/${id}`);
+        const response = await axios.get(
+          `https://api-bank-0pr4.onrender.com/getAccounts/${id}`
+        );
         setBalance(response.data.account.balance);
       } catch (error) {
         console.log(error);
       }
     }
 
-    if (userData && userData.id) { 
+    if (userData && userData.id) {
       getAccount(userData.id);
     }
   }, [userData]);
@@ -57,7 +61,9 @@ function NavbarSuperior() {
     <div className={style.navbar_superior}>
       <header className={style.headerNavSuperior}>
         <img src={logo} alt="Logo inter" className={style.logoNavSuperior} />
-        <Link to={"/profileUser"}><button className={style.perfilButtonNavSuperior}>Perfil</button></Link>
+        <Link to={"/profileUser"}>
+          <button className={style.perfilButtonNavSuperior}>Perfil</button>
+        </Link>
       </header>
 
       <div className={style.balanceContainerNavSuperior}>
@@ -77,7 +83,6 @@ function NavbarSuperior() {
             </span>
           </button>
         </div>
-        
 
         <div className={style.buttonGroupNavSuperior}>
           <Link to={"/paypixoption"} className={style.linkNavbarSuperior}>
