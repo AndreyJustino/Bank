@@ -23,7 +23,25 @@ function PayPixOption() {
 
     async function getHistorical(){
       try{
-        const response = await axios.get("https://api-bank-0pr4.onrender.com/getTransaction",{
+        
+        const responseGetUser = await axios.get(
+          `https://api-bank-0pr4.onrender.com/getUser/${Cookies.get("email")}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+    
+        const idUser = responseGetUser.data.user.id
+    
+        const responseGetAccount = await axios.get(
+          `https://api-bank-0pr4.onrender.com/getAccounts/${idUser}`
+        );
+ 
+         const idDaConta = responseGetAccount.data.account.id
+
+        const response = await axios.get(`https://api-bank-0pr4.onrender.com/getTransaction/${idDaConta}`,{
           headers: {
               "Content-Type": "application/json",
             }
