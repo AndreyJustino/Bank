@@ -1,9 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./NavbarSuperior.module.css";
 import logo from "./../assets/logoInter.png";
+import Cookies from 'js-cookie'
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 function NavbarSuperior() {
+  const [userData, setUserData] = useState(null); 
+  const [balance, setBalance] = useState()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const email = Cookies.get("email");
+
+    async function getData(email) {
+      try {
+        const response = await axios.get(`https://api-bank-0pr4.onrender.com/getUser/${email}`, {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        });
+
+        setUserData(response.data.user);
+      } catch (error) {
+        if (error.response && error.response.status === 404) {
+          Cookies.set("auth", false);
+          Cookies.set("email", "");
+          return navigate("/register");
+        }
+      }
+    }
+
+    if (email) {
+      getData(email);  
+    }
+  }, [navigate]);
+
+  useEffect(() => {
+    
+    async function getAccount(id) {
+      try {
+        const response = await axios.get(`https://api-bank-0pr4.onrender.com/getAccounts/${id}`);
+        setBalance(response.data.account.balance);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (userData && userData.id) { 
+      getAccount(userData.id);
+    }
+  }, [userData]);
+
   return (
     <div className={style.navbar_superior}>
       <header className={style.headerNavSuperior}>
@@ -13,7 +62,7 @@ function NavbarSuperior() {
 
       <div className={style.balanceContainerNavSuperior}>
         <div className={style.containerBalanceSetaNavSuperior}>
-          <h2 className={style.balancerTextNavSuperior}>R$ 10,10</h2>
+          <h2 className={style.balancerTextNavSuperior}>R$ {balance}</h2>
           <button className={style.arrowButtonNavSuperior}>
             <span className="material-icons">
               <svg
