@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./NavbarSuperior.module.css";
-import logo from "./../assets/logoInter.png";
+import logo from "./../assets/logoBank.png";
 import Cookies from 'js-cookie'
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
