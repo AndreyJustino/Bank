@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./CardFavorite.module.css";
+import style from "./CardHistorical.module.css";
 import iconNext from "../assets/icon/iconsNext.png";
 
 function CardHistorical({ valor, data, id }) {
