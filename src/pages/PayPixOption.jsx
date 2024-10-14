@@ -12,7 +12,7 @@ import axios from "axios";
 function PayPixOption() {
   const [keyPix, setKeyPix] = useState();
   const navigate = useNavigate();
-  const [statusHistorical, setStatusHistorical] = useState()
+  const [statusHistorical, setStatusHistorical] = useState("")
 
   useEffect(() => {
     const auth = Cookies.get("auth");
