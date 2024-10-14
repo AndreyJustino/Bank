@@ -7,10 +7,12 @@ import CardHistorical from "../components/CardHistorical";
 import HeaderPix from "../components/HeaderPix";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import axios from "axios";
 
 function PayPixOption() {
   const [keyPix, setKeyPix] = useState();
   const navigate = useNavigate();
+  const [statusHistorical, setStatusHistorical] = useState()
 
   useEffect(() => {
     const auth = Cookies.get("auth");
@@ -18,6 +20,27 @@ function PayPixOption() {
     if (!auth) {
       navigate("/register");
     }
+
+    async function getHistorical(){
+      try{
+        const response = await axios.get("https://api-bank-0pr4.onrender.com/getTransaction",{
+          headers: {
+              "Content-Type": "application/json",
+            }
+        })
+  
+        setStatusHistorical({data: response.data ,status : true})
+  
+      }catch(error){
+        if(error.status == 404){
+          setStatusHistorical({data: "" ,status : false})
+        }
+      }
+    }
+
+    getHistorical()
+
+    
   }, []);
 
   async function sendPix() {
@@ -70,24 +93,24 @@ function PayPixOption() {
           </div>
         </div>
       </section>
+      
       <section className={style.sectionFavoritePayOption}>
         <div className={style.textFavoritePay}>
           <h1>Historico de transações</h1>
           <p>Acessar todos</p>
         </div>
 
-        <CardHistorical
-          data={"12/12/2021"}
-          valor={"R$ XX,XX"}
-          id={"XXXXXXXXXXX"}
-        />
-
-        <CardHistorical
-          data={"12/12/2021"}
-          valor={"R$ XX,XX"}
-          id={"XXXXXXXXXXX"}
-        />
+          {
+            statusHistorical.status ? 
+              <CardHistorical
+                data={statusHistorical.data.date_transacrions}
+                valor={statusHistorical.data.value}
+                id={statusHistorical.data.id}
+              /> : <p>Nenhum transação feita até o momento</p>
+          }
+        
       </section>
+
     </div>
   );
 }
