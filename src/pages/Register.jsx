@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import logo from "../assets/logoInter.png";
+import logo from "../assets/logoBank.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import style from "./Register.module.css"
+import style from "./Register.module.css";
 
 function Register() {
   const [name, setName] = useState();
@@ -14,14 +14,14 @@ function Register() {
   const [mobileNumber, setMobileNumber] = useState();
   const [password, setPassword] = useState();
   const navigate = useNavigate();
-  const [selectedOption, setSelectedOption] = useState('')
+  const [selectedOption, setSelectedOption] = useState("");
 
   async function cadastrar(e) {
     e.preventDefault();
 
     try {
-      if(!selectedOption){
-        return toast.error('Selecione um tipo de conta')
+      if (!selectedOption) {
+        return toast.error("Selecione um tipo de conta");
       }
       await axios
         .post(
@@ -42,7 +42,7 @@ function Register() {
         )
         .then((response) => {
           if (response.data.status == 201) {
-            createAccount(response.data.user.id, selectedOption)
+            createAccount(response.data.user.id, selectedOption);
             return navigate("/login");
           }
         });
@@ -57,22 +57,25 @@ function Register() {
     }
   }
 
-  async function createAccount(idUser, type){
+  async function createAccount(idUser, type) {
     try {
-      const response = await axios.post("https://api-bank-0pr4.onrender.com/postAccounts", {
-        user_id: idUser,
-        type: type,
-        balance: 2500
-      }, {
-        headers: {
-          "Content-Type": "application/json"
+      const response = await axios.post(
+        "https://api-bank-0pr4.onrender.com/postAccounts",
+        {
+          user_id: idUser,
+          type: type,
+          balance: 2500,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
-      
+      );
+
       if (response.status === 201) {
         return toast.success("Conta criada com sucesso!");
       }
-  
     } catch (error) {
       if (error.response && error.response.status === 400) {
         return toast.error("Usuário não cadastrado");
@@ -82,7 +85,6 @@ function Register() {
       }
     }
   }
-  
 
   return (
     <div className="containerForm">
@@ -155,9 +157,9 @@ function Register() {
                   name="debito"
                   value="debito"
                   id="debito"
-                  checked={selectedOption === 'debito'}
+                  checked={selectedOption === "debito"}
                   onChange={(e) => {
-                    setSelectedOption(e.target.value)
+                    setSelectedOption(e.target.value);
                   }}
                 />
                 Débito
@@ -165,19 +167,18 @@ function Register() {
             </div>
             <div className="blocoRL" id={style.blocoR}>
               <label htmlFor="credito">
-              <input
+                <input
                   type="radio"
                   name="credito"
                   value="credito"
                   id="credito"
-                  checked={selectedOption === 'credito'}
+                  checked={selectedOption === "credito"}
                   onChange={(e) => {
-                    setSelectedOption(e.target.value)
+                    setSelectedOption(e.target.value);
                   }}
                 />
                 Crédito
               </label>
-            
             </div>
           </fieldset>
 
@@ -193,7 +194,7 @@ function Register() {
               }}
             />
           </div>
-          
+
           <div className="blocoRL">
             <label htmlFor="telefone">Telefone:</label>
             <input

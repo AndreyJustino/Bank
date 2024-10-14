@@ -7,22 +7,63 @@ import CardHistorical from "../components/CardHistorical";
 import HeaderPix from "../components/HeaderPix";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import axios from "axios";
 
 function PayPixOption() {
-  const [keyPix, setKeyPix] = useState()
-  const navigate = useNavigate()
+  const [keyPix, setKeyPix] = useState();
+  const navigate = useNavigate();
+  const [statusHistorical, setStatusHistorical] = useState("")
 
   useEffect(() => {
-    const auth = Cookies.get("auth")
+    const auth = Cookies.get("auth");
 
-    if(!auth){
-      navigate("/register")
+    if (!auth) {
+      navigate("/register");
     }
-  }, [])
+
+    async function getHistorical(){
+      try{
+        
+        const responseGetUser = await axios.get(
+          `https://api-bank-0pr4.onrender.com/getUser/${Cookies.get("email")}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+    
+        const idUser = responseGetUser.data.user.id
+    
+        const responseGetAccount = await axios.get(
+          `https://api-bank-0pr4.onrender.com/getAccounts/${idUser}`
+        );
+ 
+         const idDaConta = responseGetAccount.data.account.id
+
+        const response = await axios.get(`https://api-bank-0pr4.onrender.com/getTransaction/${idDaConta}`,{
+          headers: {
+              "Content-Type": "application/json",
+            }
+        })
+  
+        setStatusHistorical({data: response.data ,status : true})
+  
+      }catch(error){
+        if(error.status == 404){
+          setStatusHistorical({data: "" ,status : false})
+        }
+      }
+    }
+
+    getHistorical()
+
+    
+  }, []);
 
   async function sendPix() {
-    Cookies.set("keyPix", keyPix)
-    navigate("/pagesendpix")
+    Cookies.set("keyPix", keyPix);
+    navigate("/pagesendpix");
   }
 
   return (
@@ -41,13 +82,13 @@ function PayPixOption() {
           placeholder="Digite o e-mail"
           className={style.inputPayOption}
           onChange={(e) => {
-            setKeyPix(e.target.value)
+            setKeyPix(e.target.value);
           }}
           onKeyDown={(event) => {
-            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+            const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-            if(regex.test(keyPix) && event.key == "Enter"){
-              sendPix()
+            if (regex.test(keyPix) && event.key == "Enter") {
+              sendPix();
             }
           }}
         />
@@ -70,25 +111,24 @@ function PayPixOption() {
           </div>
         </div>
       </section>
+      
       <section className={style.sectionFavoritePayOption}>
         <div className={style.textFavoritePay}>
           <h1>Historico de transações</h1>
           <p>Acessar todos</p>
         </div>
 
-        <CardHistorical
-          data={"12/12/2021"}
-          valor={"R$ XX,XX"}
-          id={"XXXXXXXXXXX"}
-        />
-
-        <CardHistorical
-          data={"12/12/2021"}
-          valor={"R$ XX,XX"}
-          id={"XXXXXXXXXXX"}
-        />
+          {
+            statusHistorical.status ? 
+              <CardHistorical
+                data={statusHistorical.data.date_transacrions}
+                valor={statusHistorical.data.value}
+                id={statusHistorical.data.id}
+              /> : <p>Nenhum transação feita até o momento</p>
+          }
         
       </section>
+
     </div>
   );
 }

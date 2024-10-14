@@ -1,11 +1,11 @@
 import React from "react";
 import style from "./Balance.module.css";
 
-function Balance() {
+function Balance({balance}) {
   return (
     <div className={style.containerBalanceComponents}>
       <p>Saldo em conta</p>
-      <p>R$ xxxx</p>
+      <p>R$ {balance}</p>
     </div>
   );
 }

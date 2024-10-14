@@ -1,130 +1,129 @@
-.navbar_superior{
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.navbar_superior {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .navbar_superior::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('../assets/inter.png');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.65;
-    z-index: -1; /* Fica atrás do conteúdo */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../assets/inter.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.65;
+  z-index: -1;
 }
 
-.headerNavSuperior{
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    width: 100vw;
-    flex-wrap: wrap;
+.headerNavSuperior {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  width: 100vw;
+  flex-wrap: wrap;
 }
 
-.headerNavSuperior img{
-    width: 200px
+.headerNavSuperior img {
+  width: 200px;
 }
 
-.perfilButtonNavSuperior{
-    background-color: #ff7a00;
-    color: #fff;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 5px;
-    font-size: 1.4em;
-    cursor: pointer;
-    font-weight: 600;
+.perfilButtonNavSuperior {
+  background-color: #ff7a00;
+  color: #fff;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 1.4em;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.balanceContainerNavSuperior{
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 750px;
-    margin-top: 30px;
-    border-radius: 5px;
+.balanceContainerNavSuperior {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 750px;
+  margin-top: 30px;
+  border-radius: 5px;
 }
 
-.containerBalanceSetaNavSuperior{
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    font-size: 1.8em;
-    font-weight: 600;
-    
+.containerBalanceSetaNavSuperior {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  font-size: 1.8em;
+  font-weight: 600;
 }
 
-.containerBalanceSetaNavSuperior button{
-    border: none;
-    background-color: #fff;
+.containerBalanceSetaNavSuperior button {
+  border: none;
+  background-color: #fff;
 }
 
-.buttonGroupNavSuperior{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px;
-    flex-wrap: wrap;
+.buttonGroupNavSuperior {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+  flex-wrap: wrap;
 }
 
-.buttonGroupNavSuperior button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 1.6em;
-    background-color: #ff7a00;
-    color: #fff;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 15px;
-    cursor: pointer;
+.buttonGroupNavSuperior button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 1.6em;
+  background-color: #ff7a00;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  cursor: pointer;
 }
 
-.containerNavbarSuperior{
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    width: 100%;
-    max-width: 600px;
+.containerNavbarSuperior {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 600px;
 }
 
-.featuresContainers button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 85px;
-    height: 85px;
-    padding: 20px;
-    border: none;
-    background-color: #fff;
-    color: #000;
-    font-size: 1.4em;
-    font-weight: 600;
-    gap: 5px;
-    border-radius: 5px;
-    transition: .2s ease-in;
+.featuresContainers button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85px;
+  height: 85px;
+  padding: 20px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.4em;
+  font-weight: 600;
+  gap: 5px;
+  border-radius: 5px;
+  transition: 0.2s ease-in;
 }
 
-.featuresContainers button:hover{
-    background-color: #ff7a00;
-    color: #fff;
+.featuresContainers button:hover {
+  background-color: #ff7a00;
+  color: #fff;
 }
 
-.linkNavbarSuperior{
-    text-decoration: none;
+.linkNavbarSuperior {
+  text-decoration: none;
 }

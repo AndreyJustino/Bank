@@ -1,44 +1,41 @@
-.containerProfile{
-    background-color: #ff7a00;
-    min-height: 100vh;
+.containerProfile {
+  background-color: #ff7a00;
+  min-height: 100vh;
 }
 
-.sectionProfile{
-    /* border: 2px solid black; */
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+.sectionProfile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
-#formProfile{
-    border-radius: 0px 0px 5px 5px;
-    max-width: 750px;
+#formProfile {
+  border-radius: 0px 0px 5px 5px;
+  max-width: 750px;
 }
 
-#buttonDeleteUser{
-    background-color: #ff3d3d;
+#buttonDeleteUser {
+  background-color: #ff3d3d;
 }
 
-#formDelete{
-    position: absolute;
-    border-radius: 5px;
-    z-index: 3;
-    /* display: none; */
+#formDelete {
+  position: absolute;
+  border-radius: 5px;
+  z-index: 3;
 }
 
-#formDelete button:nth-of-type(1){
-    background-color: #ff3d3d;
+#formDelete button:nth-of-type(1) {
+  background-color: #ff3d3d;
 }
 
-#formDelete button:nth-of-type(2){
-    background-color: #3dff4d;
+#formDelete button:nth-of-type(2) {
+  background-color: #3dff4d;
 }
 
-.overlay{
-    background-color: rgba(0, 0, 0, 0.397);
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 2;
-    /* display: none; */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.397);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
 }

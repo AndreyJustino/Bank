@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logoInter.png";
+import logo from "../assets/logoBank.png";
 import Cookies from "js-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -31,7 +31,7 @@ function Login() {
         .then((response) => {
           if (response.data.status == 200) {
             Cookies.set("auth", response.data.login);
-            Cookies.set("email", email)
+            Cookies.set("email", email);
             toast.success("Login Autorizado");
             return navigate("/");
           }

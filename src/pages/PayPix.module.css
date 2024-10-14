@@ -9,7 +9,6 @@
 
 .boxDataPayPix {
   margin-top: 20px;
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,8 +35,6 @@
 
 .sectionPayPix2 {
   background-color: #fff;
-  /* padding: 20px 0px 0px 15px; */
-  /* border: 2px solid red; */
   padding: 10px;
   margin: 0 auto;
   max-width: 750px;
@@ -45,18 +42,17 @@
 
 .sectionPayPix2 h2 {
   margin: 10px;
-  /* margin-bottom: 15px; */
+  margin-left: 40px;
 }
 
 .boxDatePayPix {
   display: flex;
   align-items: center;
   border: 2px solid #cfcfcf;
-  /* margin: 10px; */
   width: 90%;
   padding: 10px;
   border-radius: 5px;
-  /* margin: 0 auto; */
+  margin: 0 auto;
 }
 
 .boxDatePayPix img {
