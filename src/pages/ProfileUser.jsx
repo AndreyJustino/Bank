@@ -264,6 +264,18 @@ function ProfileUser() {
             className="buttonRL"
             id={style.buttonDeleteUser}
             onClick={() => {
+              Cookies.remove("email")
+              Cookies.remove("auth")
+              navigate("/login")
+            }}
+          >
+            Sair da conta
+          </button>
+          <button
+            type="button"
+            className="buttonRL"
+            id={style.buttonDeleteUser}
+            onClick={() => {
               setRender(true);
               window.location.href = "#profileUser";
               setScrollBlock(true);

@@ -72,7 +72,9 @@ function PayPix() {
       }, 2000)
 
     }catch(error){
-      console.log(error.response)
+      if(error.response.status == 404){
+        toast.error("Chave pix não encontrada")
+      }
     }
   }
 

@@ -47,7 +47,7 @@ function PayPixOption() {
             }
         })
   
-        setStatusHistorical({data: response.data ,status : true})
+        setStatusHistorical({data: response.data.data ,status : true})
   
       }catch(error){
         if(error.status == 404){
@@ -55,7 +55,7 @@ function PayPixOption() {
         }
       }
     }
-
+    
     getHistorical()
 
     
@@ -120,11 +120,12 @@ function PayPixOption() {
 
           {
             statusHistorical.status ? 
-              <CardHistorical
-                data={statusHistorical.data.date_transacrions}
-                valor={statusHistorical.data.value}
-                id={statusHistorical.data.id}
-              /> : <p>Nenhum transação feita até o momento</p>
+            statusHistorical.data.map((value, index) => {
+              return (
+                <CardHistorical data={value.date_transactions} id={value.id} valor={value.value}/>
+              )
+            })  
+            : <p>Nenhum transação feita até o momento</p>
           }
         
       </section>
